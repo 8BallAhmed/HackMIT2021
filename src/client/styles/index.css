@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo");
+@import url(./global.css);
+.main_section h1 {
+    font-size: 4.5em;
+    padding-bottom: 3vh;
+    font-weight: 700;
+    line-height: 1.5em;
+    animation: fadein 2000ms;
+}
+
+.main_section h2 {
+    font-size: 3em;
+    font-weight: 500;
+    animation: fadein 2500ms;
+}
+
+.button {
+    position: relative;
+    background-color: #2a9d8f;
+    display: inline-block;
+    margin: 20px 10px;
+    padding: 10px 1vw;
+    min-width: 10vw;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+    color: white;
+    animation: fadein 2500ms;
+}

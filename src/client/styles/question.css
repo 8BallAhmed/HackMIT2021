@@ -1,0 +1,28 @@
+@import url("./global.css");
+.answers {
+    height: 50vh;
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.main_section {
+    margin-top: 5vh;
+    align-items: flex-start;
+}
+
+.answer {
+    width: 40vw;
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    border-radius: 25px;
+    align-items: center;
+    background-color: #f4f4f4;
+}
+
+.answer:hover {
+    border: 1px solid #2a9d8f;
+}

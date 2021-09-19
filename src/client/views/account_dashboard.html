@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AssessTance - Your #1 Learning Assistant</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../styles/dashboard.css">
+</head>
+
+<body>
+    <header class="page_header">
+        <a class="logo" href="./index.html"><span class="accent_color">Assess</span>Tance</a>
+        <div class="account_icon"></div>
+    </header>
+    <main>
+        <section class="main_section">
+            <div class="container">
+                <div class="nav_bar">
+                    <a href="./account_dashboard.html">Overview</a>
+                    <a href="./new_assessment.html">Create a New Assessment</a>
+                    <a href="./take_assessment.html">Take an Assessment</a>
+                    <a href="./settings.html">Settings</a>
+                </div>
+                <div class="num_of_tkn_assessments"><span class="card_header">Taken Assessments</span><br><span id="num_of_tkn_assessments"></span></div>
+                <div class="num_of_crtd_assessments"><span class="card_header">Created Assessments</span><br><span id="num_of_crtd_assessments"></span></div>
+                <div class="num_of_assessment_tkrs"><span class="card_header">Assessment Participants</span><br><span id="num_of_assessments_tkrs"></span></div>
+                <div class="total_time_spent"><span class="card_header">Time Spent</span><br><span id="total_time_spent"></span></div>
+                <div class="label_crt">Created Assessments:</div>
+                <div class="label_tkn">Taken Assessments:</div>
+                <div class="taken_assessments">
+                    <div class="taken_assessment assessment_card">1</div>
+                    <div class="taken_assessment assessment_card">2</div>
+                    <div class="taken_assessment assessment_card">3</div>
+                    <div class="taken_assessment assessment_card">4</div>
+                </div>
+                <div id="created" class="created_assessments">
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        if (localStorage.getItem('id') == undefined) {
+            window.location.href = "./index.html"
+        } else {
+
+            fetch("http://192.168.10.203:8000/fetchAssessments", {
+                method: "POST",
+                mode: "cors",
+                headers: {
+                    "Content-type": "application/json",
+                },
+                body: JSON.stringify({
+                    ownerID: localStorage.getItem('id')
+                })
+            }).then(response => response.json()).then((data) => {
+                const assessments = data.assessments;
+                let element = "";
+                let divElement = null;
+                document.getElementById("num_of_crtd_assessments").innerHTML = assessments.length;
+                for (let i = 0; i < assessments.length; i++) {
+                    element = assessments[i].name
+                    divElement = document.createElement('div');
+                    divElement.classList.add("assessment_card")
+                    divElement.classList.add("taken_assessment")
+                    divElement.onclick = function() {
+                        const id = assessments[i].id;
+                        localStorage.setItem('current_assessment', id)
+                        alert(assessments[i].questions[0].text)
+                        localStorage.setItem('questions', JSON.stringify(assessments[i].questions))
+                        localStorage.setItem('question_index', 0)
+                        window.location.href = "./question.html"
+                    }
+                    divElement.append(element)
+                    document.getElementById('created').appendChild(divElement)
+                }
+            })
+        }
+    </script>
+    <script src="" async defer></script>
+</body>
+
+</html>

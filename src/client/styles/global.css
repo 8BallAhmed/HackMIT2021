@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo");
+* {
+    font-family: "Cairo", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    transition: 0.4s;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    color: #000;
+    font-size: 36px;
+}
+
+.accent_color {
+    color: #2a9d8f;
+}
+
+.account_icon {
+    margin-top: 10px;
+    height: 50px;
+    width: 50px;
+    /* Icon made by srip from www.flaticon.com */
+    background: url("../img/user.png");
+    background-size: contain;
+    border-radius: 50%;
+}
+
+.main_section {
+    padding-top: 100px;
+    position: relative;
+    height: 100vh;
+    background: #fff;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    color: #000;
+}
+
+.next {
+    font-size: 24px;
+    position: fixed;
+    bottom: 1vh;
+    right: 1vw;
+}
+
+.card_header {
+    font-size: 1.2em;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AssessTance - Create a New Assessment</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../styles/form.css">
+</head>
+
+<body>
+    <header class="page_header">
+        <a class="logo" href="./index.html"><span class="accent_color">Assess</span>Tance</a>
+        <div class="account_icon"></div>
+    </header>
+    <main>
+        <section class="main_section">
+            <div>
+                <h1>
+                    Create New Assessment
+                </h1>
+                <form class="auth_form" onsubmit="event.preventDefault(); newAssessment()">
+                    <label for="assessment_name">Assessment Name:</label>
+                    <input id="assessment_name" type="text" name="assessment_name" required>
+                    <label for="num_of_qs">Number Of Questions:</label>
+                    <input id="num_of_qs" type="number" name="num_of_qs" max="20" required>
+                    <input id="submit" type="submit" value="Next">
+                </form>
+                <a href="./account_dashboard.html" class="button">Go Back</a>
+            </div>
+        </section>
+    </main>
+    <script>
+        function newAssessment() {
+            let assessment_name = document.getElementById("assessment_name").value;
+            let num_of_qs = document.getElementById("num_of_qs").value;
+            let questions = [];
+            let currentQ = 1;
+            localStorage.setItem('name', assessment_name);
+            localStorage.setItem('numOfQuestions', num_of_qs);
+            localStorage.setItem('questions', questions);
+            localStorage.setItem('counter', currentQ);
+        }
+    </script>
+</body>
+
+</html>

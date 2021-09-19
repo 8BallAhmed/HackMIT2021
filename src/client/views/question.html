@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AssessTance - Assessment</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../styles/question.css">
+</head>
+
+<body>
+    <header class="page_header">
+        <a class="logo" href="./index.html"><span class="accent_color">Assess</span>Tance</a>
+        <div class="account_icon"></div>
+    </header>
+    <main>
+        <section class="main_section">
+            <div class="question">
+                <h1 id="question_num">
+                    Question X:
+                </h1>
+                <h2 id="question">
+                    Lorem ipsum dolor sit amit consectetur sit adipscining.
+                </h2>
+                <div class="answers">
+                    <div id="answer0" class="answer" onclick="">hi</div>
+                    <div id="answer1" class="answer" onclick="">hi</div>
+                    <div id="answer2" class="answer" onclick="">hi</div>
+                    <div id="answer3" class="answer" onclick="">hi</div>
+                </div>
+            </div>
+            <div class="next">Next ></div>
+        </section>
+    </main>
+    <script src="" async defer></script>
+    <script>
+        let questionIndex = parseInt(localStorage.getItem("question_index"));
+
+        document.getElementById('question_num').innerHTML = `Question ${localStorage.getItem('question_index')}`
+        document.getElementById('question').innerHTML = JSON.parse(localStorage.getItem('questions'))[questionIndex].text
+        document.getElementById('answer0').innerHTML = JSON.parse(localStorage.getItem('questions'))[questionIndex].answers[0].text
+        document.getElementById('answer0').onclick = function() {
+            if (document.getElementById('answer0').innerHTML = JSON.parse(localStorage.getItem('questions'))[questionIndex].answers[0].correct == "true") {
+                document.getElementById("answer0").style.backgroundColor = "#2a9d8f"
+            } else {
+                document.getElementById("answer0").style.backgroundColor = "#e76f51"
+            }
+            localStorage.setItem('question_index', parseInt(localStorage.getItem('question_index')) + 1)
+            window.location.href = "./question.html"
+        }
+        document.getElementById('answer1').innerHTML = JSON.parse(localStorage.getItem('questions'))[questionIndex].answers[1].text
+        document.getElementById('answer1').onclick = function() {
+            if (document.getElementById('answer1').innerHTML = JSON.parse(localStorage.getItem('questions'))[questionIndex].answers[1].correct == "true") {
+                document.getElementById("answer1").style.backgroundColor = "#2a9d8f"
+            } else {
+                document.getElementById("answer1").style.backgroundColor = "#e76f51"
+            }
+            localStorage.setItem('question_index', parseInt(localStorage.getItem('question_index')) + 1)
+            window.location.href = "./question.html"
+        }
+        document.getElementById('answer2').innerHTML = JSON.parse(localStorage.getItem('questions'))[questionIndex].answers[2].text
+        document.getElementById('answer2').onclick = function() {
+            if (document.getElementById('answer2').innerHTML = JSON.parse(localStorage.getItem('questions'))[questionIndex].answers[2].correct == "true") {
+                document.getElementById("answer2").style.backgroundColor = "#2a9d8f"
+            } else {
+                document.getElementById("answer2").style.backgroundColor = "#e76f51"
+            }
+            localStorage.setItem('question_index', parseInt(localStorage.getItem('question_index')) + 1)
+            window.location.href = "./question.html"
+        }
+        document.getElementById('answer3').innerHTML = JSON.parse(localStorage.getItem('questions'))[questionIndex].answers[3].text
+        document.getElementById('answer3').onclick = function() {
+            if (document.getElementById('answer3').innerHTML = JSON.parse(localStorage.getItem('questions'))[questionIndex].answers[3].correct == true) {
+                document.getElementById("answer3").style.backgroundColor = "#2a9d8f"
+            } else {
+                document.getElementById("answer3").style.backgroundColor = "#e76f51"
+            }
+            localStorage.setItem('question_index', parseInt(localStorage.getItem('question_index')) + 1)
+            window.location.href = "./question.html"
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AssessTance - Assessment Complete!</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../styles/question.css">
+</head>
+
+<body>
+    <header class="page_header">
+        <a class="logo" href="./index.html"><span class="accent_color">Assess</span>Tance</a>
+        <div class="account_icon"></div>
+    </header>
+    <main>
+        <section class="main_section">
+            <form class="auth_form">
+                <h1>
+                    Assessment Creation Complete!
+                </h1>
+                <label for="assessment_id">Assessment ID:</label>
+                <input id="assessment_id" type="text" name="assessment_id" readonly />
+                <input id="back_to_dashboard" type="submit" value="Back to Dashboard">
+            </form>
+        </section>
+    </main>
+    <script>
+        function assessmentCreation() {
+            const ownerID = localStorage.getItem("id");
+            const name = localStorage.getItem("name");
+            const numOfQuestions = localStorage.getItem("numOfQuestions");
+            const questions = localStorage.getItem("questions");
+            fetch("http://192.168.10.203:8000/assessments", {
+                    method: "POST",
+                    mode: "cors",
+                    headers: {
+                        "Content-type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        ownerID: id,
+                        name: name,
+                        numOfQuestions: numOfQuestions,
+                        questions: questions
+                    }),
+                })
+                .then((response) => response.json())
+                .then((data) => {
+                    if (data.status == 404) {
+                        alert("user not found!");
+                    } else if (data.status == 200) {
+                        alert("Login successful!");
+                        localStorage.setItem("id", data.id);
+                        window.location.href = "./account_dashboard.html";
+                    }
+                });
+        }
+    </script>
+</body>
+
+</html>

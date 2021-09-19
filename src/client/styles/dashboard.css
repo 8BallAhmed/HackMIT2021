@@ -1,0 +1,96 @@
+@import url("./global.css");
+html {
+    height: 100vh;
+}
+
+a {
+    color: #000;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    z-index: 900;
+    margin-top: 35px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.8fr 0.8fr 0.2fr 0.8fr 0.2fr 0.8fr;
+    gap: 1vh 1vh;
+    grid-auto-flow: row;
+    grid-template-areas: "nav_bar . num_of_tkn_assessments num_of_crtd_assessments ." "nav_bar . total_time_spent num_of_assessment_tkrs ." "nav_bar label_crt . . ." "nav_bar created_assessments created_assessments created_assessments created_assessments" "nav_bar label_tkn . . ." "nav_bar taken_assessments taken_assessments taken_assessments taken_assessments";
+}
+
+.nav_bar {
+    margin-top: -9px;
+    grid-area: nav_bar;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    padding-left: 3vw;
+    background-color: #f2f2f2;
+}
+
+.nav_bar a {
+    padding-bottom: 3vh;
+}
+
+.num_of_tkn_assessments {
+    grid-area: num_of_tkn_assessments;
+    background-color: #2a9d8f;
+}
+
+.num_of_crtd_assessments {
+    grid-area: num_of_crtd_assessments;
+    background-color: #e9c46a;
+}
+
+.num_of_assessment_tkrs {
+    grid-area: num_of_assessment_tkrs;
+    background-color: #597986;
+}
+
+.total_time_spent {
+    grid-area: total_time_spent;
+    background-color: #f4a261;
+}
+
+.label_crt {
+    grid-area: label_crt;
+}
+
+.label_tkn {
+    grid-area: label_tkn;
+}
+
+.label_crt,
+.label_tkn {
+    display: flex;
+    align-items: flex-end;
+}
+
+.taken_assessments,
+.created_assessments {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.taken_assessments {
+    grid-area: taken_assessments;
+}
+
+.created_assessments {
+    grid-area: created_assessments;
+}
+
+.assessment_card {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
